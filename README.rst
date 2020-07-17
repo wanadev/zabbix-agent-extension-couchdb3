@@ -73,4 +73,5 @@ Example: displaying CouchDB stats in a more friendly format::
 Changelog
 ---------
 
+* **v0.1.1:** Fixes an issue with the entry point
 * **v0.1.0:** Initial release
