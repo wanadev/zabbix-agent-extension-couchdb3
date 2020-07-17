@@ -39,6 +39,20 @@ Installation (zabbix side)
 TODO (import template)
 
 
+About polling interval
+----------------------
+
+The default polling interval of this probe in Zabbix is ``30s``. In order to
+have accurate stats, you must configure the "stats interval" setting of your
+CouchDB to twice this value (so ``60s``) (it is set to ``10s`` by default)::
+
+    [stats]
+    interval = 60
+
+Read more `in the CouchDB documentation
+<https://docs.couchdb.org/en/stable/api/server/common.html#node-node-name-stats>`_.
+
+
 CLI Usage
 ---------
 
