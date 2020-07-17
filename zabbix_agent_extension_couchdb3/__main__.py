@@ -19,7 +19,8 @@ def print_stats(stats_json):
 
 
 def send_stats_to_zabbix(stats_json, hostname):
-    pass
+    stats = zabbix.flatten_stats(stats_json)
+    return zabbix.send_stats(stats, hostname)
 
 
 def main(args):
@@ -38,10 +39,9 @@ def main(args):
     elif options.show_stats:
         print_stats(stats_json)
     else:
-        raise NotImplementedError()  # TODO
-        # hostname = zabbix.get_hostname()
-        # resp = send_stats_to_zabbix(stats_json, hostname)
-        # print(resp)
+        hostname = zabbix.get_hostname()
+        resp = send_stats_to_zabbix(stats_json, hostname)
+        print(resp)
 
 
 if __name__ == "__main__":

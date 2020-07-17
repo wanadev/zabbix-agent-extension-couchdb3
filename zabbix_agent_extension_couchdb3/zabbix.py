@@ -1,6 +1,8 @@
 import os
 import re
 
+from pyzabbix import ZabbixMetric, ZabbixSender
+
 
 _HOSTNAME_REGEXP = re.compile(r"^Hostname=(.+)\s*$")
 _ZABBIX_CONFIG = "/etc/zabbix/zabbix_agentd.conf"
@@ -18,15 +20,22 @@ def get_hostname():
             return _HOSTNAME_REGEXP.match(line).group(1)
 
 
-def flatten_stats(data, prefix="couchdb3"):
-    for key in data:
-        if "value" in data[key]:
-            if type(data[key]["value"]) is dict:
+def flatten_stats(stats_json, prefix="couchdb3"):
+    for key in stats_json:
+        if "value" in stats_json[key]:
+            if type(stats_json[key]["value"]) is dict:
                 continue  # FIXME skip complex values
             yield (
                     "%s.%s" % (prefix, key),
-                    data[key]["value"],
-                    data[key]["desc"])
+                    stats_json[key]["value"],
+                    stats_json[key]["desc"])
         else:
-            for item in flatten_stats(data[key], "%s.%s" % (prefix, key)):
+            for item in flatten_stats(stats_json[key], "%s.%s" % (prefix, key)):  # noqa: E501
                 yield item
+
+
+def send_stats(stats, hostname="localhost"):
+    packet = []
+    for key, value, desc in stats:
+        packet.append(ZabbixMetric(hostname, key, value))
+    return ZabbixSender(use_config=True).send(packet)
