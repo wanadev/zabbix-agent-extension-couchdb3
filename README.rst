@@ -19,7 +19,7 @@ You first have to install the extension on the server that runs the Zabbix
 Agent.
 
 
-From PIPY
+From PyPI
 ~~~~~~~~~
 
 Run the following command (as root):
