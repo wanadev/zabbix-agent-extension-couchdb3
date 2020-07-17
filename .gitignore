@@ -1,1 +1,4 @@
 __env__
+*.pyc
+__pycache__
+*.egg-info
