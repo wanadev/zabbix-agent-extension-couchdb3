@@ -22,7 +22,7 @@ Agent.
 From PyPI
 ~~~~~~~~~
 
-Run the following command (as root):
+Run the following command (as root)::
 
     pip3 install zabbix-agent-extension-couchdb3
 
@@ -44,7 +44,7 @@ About polling interval
 
 The default polling interval of this probe in Zabbix is ``30s``. In order to
 have accurate stats, you must configure the "stats interval" setting of your
-CouchDB to twice this value (so ``60s``) (it is set to ``10s`` by default)::
+CouchDB to twice this value (``60s``)::
 
     [stats]
     interval = 60
