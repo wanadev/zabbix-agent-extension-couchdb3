@@ -23,7 +23,7 @@ def send_stats_to_zabbix(stats_json, hostname):
     return zabbix.send_stats(stats, hostname)
 
 
-def main(args):
+def main(args=sys.argv[1:]):
     cli = make_cli()
     options = cli.parse_args(args)
 
@@ -45,4 +45,4 @@ def main(args):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    main()
