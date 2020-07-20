@@ -11,7 +11,7 @@ def print_json(stats_json):
 
 
 def print_stats(stats_json):
-    stats = zabbix.flatten_stats(stats_json)
+    stats = couchdb.flatten_stats(stats_json)
     for key, value, desc in stats:
         print("# %s" % desc)
         print("%s %s" % (key, str(value)))
@@ -19,7 +19,7 @@ def print_stats(stats_json):
 
 
 def send_stats_to_zabbix(stats_json, hostname):
-    stats = zabbix.flatten_stats(stats_json)
+    stats = couchdb.flatten_stats(stats_json)
     return zabbix.send_stats(stats, hostname)
 
 

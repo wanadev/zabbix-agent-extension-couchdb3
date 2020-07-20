@@ -20,20 +20,6 @@ def get_hostname():
             return _HOSTNAME_REGEXP.match(line).group(1)
 
 
-def flatten_stats(stats_json, prefix="couchdb3"):
-    for key in stats_json:
-        if "value" in stats_json[key]:
-            if type(stats_json[key]["value"]) is dict:
-                continue  # FIXME skip complex values
-            yield (
-                    "%s.%s" % (prefix, key),
-                    stats_json[key]["value"],
-                    stats_json[key]["desc"])
-        else:
-            for item in flatten_stats(stats_json[key], "%s.%s" % (prefix, key)):  # noqa: E501
-                yield item
-
-
 def send_stats(stats, hostname="localhost"):
     packet = []
     for key, value, desc in stats:
