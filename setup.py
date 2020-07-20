@@ -13,7 +13,7 @@ if os.path.isfile("README.rst"):
 
 setup(
     name="zabbix-agent-extension-couchdb3",
-    version="0.1.1",
+    version="0.2.0",
     description="Zabbix Agent extension to monitor CouchDB 3",
     url="https://github.com/wanadev/zabbix-agent-extension-couchdb3",
     license="BSD-3-Clause",
