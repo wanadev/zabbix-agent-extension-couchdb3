@@ -144,6 +144,12 @@ Example: generating the Zabbix template::
 Changelog
 ---------
 
+* **v1.0.0:**
+
+  * Adds a command to generate the template from the available CouchDB stats
+  * Adds a template for Zabbix 4.0
+  * Adds documentation
+
 * **v0.2.0:** Handles histogram-type values
 * **v0.1.1:** Fixes an issue with the entry point
 * **v0.1.0:** Initial release
