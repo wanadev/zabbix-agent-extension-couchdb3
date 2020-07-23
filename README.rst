@@ -1,13 +1,14 @@
 Zabbix Agent extension to monitor CouchDB 3
 ===========================================
 
-This is an extension for the Zabbix Agent to enable it to monitor CouchDB
+This is an extension for the Zabbix 4.x Agent to enable it to monitor CouchDB
 3 servers.
 
 
 Requirements
 ------------
 
+* Zabbix 4.0+
 * Python 3.5+
 * `py-zabbix <https://github.com/adubkov/py-zabbix>`_
 
