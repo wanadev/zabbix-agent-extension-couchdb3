@@ -64,10 +64,10 @@ Doc: https://www.zabbix.com/documentation/4.0/manual/config/hosts/host
    :alt: Screenshot
 
 
-3. Configure connexion informations using macros
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+3. Configure connexion information using macros
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Got to the host configuration page,
+* Go to the host configuration page,
 * open the ``Macros`` tab,
 * configure required parameters.
 
