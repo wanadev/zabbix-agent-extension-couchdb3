@@ -48,4 +48,9 @@ def make_cli():
             help="Display the available stats with their values and description and exit (no stats will be sent to Zabbix)",  # noqa
             action="store_true")
 
+    cli.add_argument(
+            "--generate-template",
+            help="Generates a Zabbix 4 template with all supported keys and exit (no stats will be sent to Zabbix)",  # noqa
+            action="store_true")
+
     return cli

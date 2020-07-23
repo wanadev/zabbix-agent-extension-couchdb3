@@ -4,6 +4,7 @@ import json
 from .cli import make_cli
 from . import couchdb
 from . import zabbix
+from . import template
 
 
 def print_json(stats_json):
@@ -16,6 +17,12 @@ def print_stats(stats_json):
         print("# %s" % desc)
         print("%s %s" % (key, str(value)))
         print()
+
+
+def print_zabbix_template(stats_json):
+    stats = couchdb.flatten_stats(stats_json)
+    tpl = template.generate_zabbix4_template(stats)
+    print(tpl)
 
 
 def send_stats_to_zabbix(stats_json, hostname):
@@ -38,6 +45,8 @@ def main(args=sys.argv[1:]):
         print_json(stats_json)
     elif options.show_stats:
         print_stats(stats_json)
+    elif options.generate_template:
+        print_zabbix_template(stats_json)
     else:
         hostname = zabbix.get_hostname()
         resp = send_stats_to_zabbix(stats_json, hostname)

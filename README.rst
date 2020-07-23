@@ -60,8 +60,9 @@ This extension also provides a CLI to simplify debugging.
 
 ::
 
-    usage: zabbix-agent-extension-couchdb3 [-h] [--host HOST] [--port PORT] [--user USER]
-                        --password PASSWORD [--proto PROTO] [--show-json] [--show-stats]
+    usage: zabbix-agent-extension-couchdb3
+    [-h] [--host HOST] [--port PORT] [--user USER] --password PASSWORD
+                       [--proto PROTO] [--show-json] [--show-stats] [--generate-template]
 
     optional arguments:
       -h, --help           show this help message and exit
@@ -74,6 +75,9 @@ This extension also provides a CLI to simplify debugging.
                            sent to Zabbix)
       --show-stats         Display the available stats with their values and description and exit
                            (no stats will be sent to Zabbix)
+      --generate-template  Generates a Zabbix 4 template with all supported keys and exit (no
+                       stats will be sent to Zabbix)
+
 
 Example: dumping CouchDB stats as JSON::
 
@@ -82,6 +86,10 @@ Example: dumping CouchDB stats as JSON::
 Example: displaying CouchDB stats in a more friendly format::
 
     zabbix-agent-extension-couchdb3 --password=XXXXX --show-stats
+
+Example: generating the Zabbix template::
+
+    zabbix-agent-extension-couchdb3 --password=XXXXX --generate-template > zabbix-agent-extension-couchdb3.template.xml
 
 
 Changelog
