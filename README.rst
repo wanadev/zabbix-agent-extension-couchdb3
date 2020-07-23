@@ -12,7 +12,7 @@ Requirements
 * `py-zabbix <https://github.com/adubkov/py-zabbix>`_
 
 
-Installation (agent side)
+Installation (Agent side)
 -------------------------
 
 You first have to install the extension on the server that runs the Zabbix
@@ -33,10 +33,58 @@ And finally, restart the Zabbix Agent (with systemd: ``systemctl restart
 zabbix-agent``).
 
 
-Installation (zabbix side)
+Installation (Zabbix side)
 --------------------------
 
-TODO (import template)
+1. Import the template
+~~~~~~~~~~~~~~~~~~~~~~
+
+* Go to ``Configuration`` -> ``Templates``,
+* and click on the ``Import`` button.
+
+.. figure:: ./screenshots/zabbix_import_template_01.png
+   :alt: Screenshot
+
+* Now select the template (``zabbix-agent-extension-couchdb3.template.xml``),
+* and click on the ``Import`` button.
+
+.. figure:: ./screenshots/zabbix_import_template_02.png
+   :alt: Screenshot
+
+
+2. Add the template to a host
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Go to the host configuration,
+* and link the ``Template CouchDB 3`` tempate to it.
+
+Doc: https://www.zabbix.com/documentation/4.0/manual/config/hosts/host
+
+.. figure:: ./screenshots/zabbix_add_template.png
+   :alt: Screenshot
+
+
+3. Configure connexion informations using macros
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Got to the host configuration page,
+* open the ``Macros`` tab,
+* configure required parameters.
+
+The following parameters are available:
+
+* ``{$COUCHDB_HOST}``: the CouchDB host (optional, default: ``localhost``)
+* ``{$COUCHDB_PASSWORD}``: the password to connect to CouchDB (required)
+* ``{$COUCHDB_PORT}``: the CouchDB port (optional, default: ``5984``)
+* ``{$COUCHDB_PROTO}``: the protocol to use to connect to CouchDB (``http`` or
+  ``https``, optional, default: ``http``)
+* ``{$COUCHDB_USER}``: the user to connect to CouchDB (optional, default:
+  ``admin``)
+
+**At least the** ``{$COUCHDB_PASSWORD}`` **must be defined!**
+
+.. figure:: ./screenshots/zabbix_config_macros.png
+   :alt: Screenshot
 
 
 About polling interval
