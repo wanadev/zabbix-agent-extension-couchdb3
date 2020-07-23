@@ -81,7 +81,7 @@ The following parameters are available:
 * ``{$COUCHDB_USER}``: the user to connect to CouchDB (optional, default:
   ``admin``)
 
-**At least the** ``{$COUCHDB_PASSWORD}`` **must be defined!**
+**At least the** ``{$COUCHDB_PASSWORD}`` **macro must be defined!**
 
 .. figure:: ./screenshots/zabbix_config_macros.png
    :alt: Screenshot
