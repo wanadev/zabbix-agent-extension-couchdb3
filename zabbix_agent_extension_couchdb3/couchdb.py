@@ -12,13 +12,15 @@ def get_stats(host="localhost", port=5984, user="admin", password=None, proto="h
     url = urllib.request.urlunparse((
         proto, "%s:%i" % (host, port), _ZABBIX_STATS_ROUTE, None, None, None))
 
-    auth_handler = urllib.request.HTTPBasicAuthHandler()
-    auth_handler.add_password(
-            realm="server",
+    password_manager = urllib.request.HTTPPasswordMgrWithPriorAuth()
+    password_manager.add_password(
+            realm=None,
             uri=url,
             user=user,
-            passwd=password)
+            passwd=password,
+            is_authenticated=True)
 
+    auth_handler = urllib.request.HTTPBasicAuthHandler(password_manager)
     opener = urllib.request.build_opener(auth_handler)
 
     urllib.request.install_opener(opener)
