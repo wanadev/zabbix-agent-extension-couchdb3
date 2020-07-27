@@ -65,8 +65,8 @@ Doc: https://www.zabbix.com/documentation/4.0/manual/config/hosts/host
    :alt: Screenshot
 
 
-3. Configure connexion information using macros
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+3. Configure connection information using macros
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Go to the host configuration page,
 * open the ``Macros`` tab,
@@ -144,6 +144,8 @@ Example: generating the Zabbix template::
 Changelog
 ---------
 
+* **v1.0.1:** Send credential to CouchDB at first request instead of waiting
+  for a 401 first
 * **v1.0.0:**
 
   * Adds a command to generate the template from the available CouchDB stats
