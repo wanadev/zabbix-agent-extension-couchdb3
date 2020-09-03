@@ -1,8 +1,8 @@
 Zabbix Agent extension to monitor CouchDB 3
 ===========================================
 
-This is an extension for the Zabbix 4.x Agent to enable it to monitor CouchDB
-3 servers.
+This is an extension (user parameter + trapper item and a template) for
+Zabbix 4.x (should work on Zabbix 5.x too) to monitor CouchDB 3 servers.
 
 
 Requirements
